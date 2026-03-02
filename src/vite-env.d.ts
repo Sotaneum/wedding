@@ -11,7 +11,6 @@ declare module "*.jpg" {
 }
 
 interface Window {
-    closeOverlay: () => void;
     kakao: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       maps: any;

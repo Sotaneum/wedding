@@ -118,8 +118,8 @@ export default function Item({
     );
   }
   if (id === "notice" && setting.notice && setting.notice.length > 0) {
-    return setting.notice.map((notice) => (
-      <TextNotice key={notice.title} {...notice} />
+    return setting.notice.map((notice, index) => (
+      <TextNotice key={`${notice.title}-${index}`} {...notice} />
     ));
   }
   if (
@@ -127,8 +127,8 @@ export default function Item({
     setting.bus_notice &&
     setting.bus_notice.length > 0
   ) {
-    return setting.bus_notice.map((notice) => (
-      <BusNotice key={notice.title} {...notice} />
+    return setting.bus_notice.map((notice, index) => (
+      <BusNotice key={`${notice.title}-${index}`} {...notice} />
     ));
   }
   if (id === "congratulations" && setting.congratulations) {

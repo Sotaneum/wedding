@@ -21,22 +21,45 @@ const Banner = memo(function Banner({
   children,
   onLoaded,
 }: BannerProps) {
+  const imageCount = images.length;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(1);
+  const [nextIndex, setNextIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
+    if (imageCount === 0) {
+      onLoaded?.();
+      return;
+    }
+
+    if (imageCount <= 1) {
+      return;
+    }
+
+    let timeout: ReturnType<typeof setTimeout> | null = null;
     const interval = setInterval(() => {
       setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-        setNextIndex((prev) => (prev + 1) % images.length);
+      timeout = setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % imageCount);
+        setNextIndex((prev) => (prev + 1) % imageCount);
         setIsAnimating(false);
       }, transitionDuration);
     }, intervalTime);
 
-    return () => clearInterval(interval);
-  }, [images.length, transitionDuration, intervalTime]);
+    return () => {
+      clearInterval(interval);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [imageCount, onLoaded, transitionDuration, intervalTime]);
+
+  if (imageCount === 0) {
+    return <div className="banner-container">{children}</div>;
+  }
+
+  const safeCurrentIndex = currentIndex % imageCount;
+  const safeNextIndex = nextIndex % imageCount;
 
   return (
     <div className="banner-container">
@@ -51,7 +74,7 @@ const Banner = memo(function Banner({
       <div
         className="banner-bg-next"
         style={{
-          backgroundImage: `url(${images[nextIndex]})`,
+          backgroundImage: `url(${images[safeNextIndex]})`,
         }}
       />
       <div
@@ -73,10 +96,10 @@ const Banner = memo(function Banner({
               key={`${currentIndex}-${i}`}
               className="banner-grid-item"
               style={{
-                backgroundImage: `url(${images[currentIndex]})`,
+                backgroundImage: `url(${images[safeCurrentIndex]})`,
                 backgroundSize: `${cols * 100}% ${rows * 100}%`,
-                backgroundPosition: `${(col / (cols - 1)) * 100}% ${
-                  (row / (rows - 1)) * 100
+                backgroundPosition: `${cols > 1 ? (col / (cols - 1)) * 100 : 0}% ${
+                  rows > 1 ? (row / (rows - 1)) * 100 : 0
                 }%`,
                 opacity: isAnimating ? 0 : 1,
                 transition: `opacity 0.4s ease-in-out ${delay}ms`,

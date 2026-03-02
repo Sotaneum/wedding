@@ -9,8 +9,10 @@ interface ShareProps {
 
 const Share = ({ templateId, title = "카카오톡으로 공유하기" }: ShareProps) => {
   const kakaoShareBtnRef = useRef<HTMLButtonElement>(null);
+  const isInitialized = useRef(false);
+
   useEffect(() => {
-    if (!window?.Kakao) {
+    if (!window?.Kakao || !kakaoShareBtnRef.current || isInitialized.current) {
       return;
     }
 
@@ -19,6 +21,7 @@ const Share = ({ templateId, title = "카카오톡으로 공유하기" }: ShareP
         container: kakaoShareBtnRef.current,
         templateId,
       });
+      isInitialized.current = true;
     } catch (error) {
       console.error("Failed to initialize Kakao Share button", error);
     }

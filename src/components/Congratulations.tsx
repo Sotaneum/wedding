@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Congratulations.css";
 import Accordion from "./Accordion";
 import CopyIcon from "./svg/CopyIcon";
@@ -33,14 +33,31 @@ function Congratulations({
   copyAriaLabel = "계좌번호 복사",
 }: CongratulationsProps) {
   const [copied, setCopied] = useState(false);
+  const copiedTimeoutRef = useRef<number | null>(null);
 
   const handleCopy = (item: { account: string; bank: string }) => {
     const rawAccount = `${item.bank} ${item.account.replace(/-/g, "")}`;
-    navigator.clipboard.writeText(rawAccount).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    navigator.clipboard
+      .writeText(rawAccount)
+      .then(() => {
+        setCopied(true);
+        if (copiedTimeoutRef.current) {
+          window.clearTimeout(copiedTimeoutRef.current);
+        }
+        copiedTimeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(() => {
+        setCopied(false);
+      });
   };
+
+  useEffect(() => {
+    return () => {
+      if (copiedTimeoutRef.current) {
+        window.clearTimeout(copiedTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="congratulations-container">

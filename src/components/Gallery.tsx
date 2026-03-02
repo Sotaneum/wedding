@@ -31,13 +31,12 @@ function Gallery({ images, filteredImages }: GalleryProps) {
   };
 
   const onTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
+    if (touchStartX.current === null || touchEndX.current === null) return;
     const distance = touchStartX.current - touchEndX.current;
 
     if (distance > minSwipeDistance) {
       nextImage();
-    }
-    else if (distance < -minSwipeDistance) {
+    } else if (distance < -minSwipeDistance) {
       prevImage();
     }
   };
@@ -50,7 +49,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
         prev !== null && prev < images.length - 1 ? prev + 1 : 0,
       );
     },
-    [images, selectedIndex],
+    [images.length, selectedIndex],
   );
 
   const prevImage = useCallback(
@@ -61,7 +60,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
         prev !== null && prev > 0 ? prev - 1 : images.length - 1,
       );
     },
-    [images, selectedIndex],
+    [images.length, selectedIndex],
   );
 
   const closeLightbox = useCallback(() => {
@@ -107,7 +106,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
             .slice(0, images.length % 2)
             .map((src, index) => (
               <img
-                key={src}
+                key={`${src}-even-${index}`}
                 className="gallery-image gallery-filler even"
                 src={src}
                 alt={`Filtered image ${index + 1}`}
@@ -120,7 +119,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
             .slice(0, 3 - (images.length % 3))
             .map((src, index) => (
               <img
-                key={src}
+                key={`${src}-odd-${index}`}
                 className="gallery-image gallery-filler odd"
                 src={src}
                 alt={`Filtered image ${index + 1}`}

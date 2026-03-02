@@ -19,6 +19,7 @@ function Story({ title, description, card, hero }: StoryProps) {
       {card && (
         <img
           src={card}
+          alt="청첩장 카드 이미지"
           style={{ width: "75%", maxWidth: "384px", paddingBottom: "1rem" }}
         />
       )}

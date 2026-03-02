@@ -50,36 +50,44 @@ function Location({
         ),
       });
 
-      const content =
+      const content = document.createElement("div");
+      content.innerHTML =
         '<div class="wrap">' +
         '    <div class="info">' +
         '        <div class="title">' +
         `            ${venueName}` +
-        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+        '            <div class="close" title="닫기"></div>' +
         "        </div>" +
         '        <div class="body">' +
         '            <div class="img" style="background-color: #42693c;justify-content: center;display: flex;align-items: center;">' +
-        `                <img src="${venueLogo}" width="73" height="35">` +
+        `                <img src="${venueLogo}" width="73" height="35" alt="웨딩홀 로고">` +
         "           </div>" +
         '            <div class="desc">' +
         `                <div class="ellipsis">${address}</div>` +
         `                <div class="jibun ellipsis">${addressJibun}</div>` +
-        `                <div><a href="${websiteUrl}" target="_blank" class="link">홈페이지</a></div>` +
+        `                <div><a href="${websiteUrl}" target="_blank" rel="noreferrer" class="link">홈페이지</a></div>` +
         "            </div>" +
         "        </div>" +
         "    </div>" +
         "</div>";
 
       const overlay = new window.kakao.maps.CustomOverlay({
-        content: content,
+        content,
         map: map,
         position: marker.getPosition(),
       });
 
-      window.kakao.maps.event.addListener(marker, "click", function () {
+      const closeBtn = content.querySelector(".close");
+      const handleClose = () => overlay.setMap(null);
+      closeBtn?.addEventListener("click", handleClose);
+
+      const handleMarkerClick = () => {
         overlay.setMap(map);
-      });
-      window.closeOverlay = () => {
+      };
+      window.kakao.maps.event.addListener(marker, "click", handleMarkerClick);
+
+      return () => {
+        closeBtn?.removeEventListener("click", handleClose);
         overlay.setMap(null);
       };
     }
