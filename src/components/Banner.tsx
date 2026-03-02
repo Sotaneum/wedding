@@ -52,6 +52,8 @@ const Banner = memo(function Banner({
         className="banner-bg-next"
         style={{
           backgroundImage: `url(${images[nextIndex]})`,
+          backgroundSize: "100% 100%",
+          backgroundPosition: "0 0",
         }}
       />
       <div
@@ -66,7 +68,10 @@ const Banner = memo(function Banner({
           const col = i % cols;
           const dist = row + (cols - 1 - col);
           const maxDist = rows - 1 + (cols - 1);
-          const delay = (dist / maxDist) * (transitionDuration * 0.6);
+          const delay =
+            maxDist > 0 ? (dist / maxDist) * (transitionDuration * 0.6) : 0;
+          const x = cols > 1 ? (col / (cols - 1)) * 100 : 0;
+          const y = rows > 1 ? (row / (rows - 1)) * 100 : 0;
 
           return (
             <div
@@ -75,9 +80,7 @@ const Banner = memo(function Banner({
               style={{
                 backgroundImage: `url(${images[currentIndex]})`,
                 backgroundSize: `${cols * 100}% ${rows * 100}%`,
-                backgroundPosition: `${(col / (cols - 1)) * 100}% ${
-                  (row / (rows - 1)) * 100
-                }%`,
+                backgroundPosition: `${x}% ${y}%`,
                 opacity: isAnimating ? 0 : 1,
                 transition: `opacity 0.4s ease-in-out ${delay}ms`,
               }}
