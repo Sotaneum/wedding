@@ -89,7 +89,7 @@
     }
   ],
   "gallery": {
-    "emptyImages": ["image.png", "image1.png"]
+    "fillerImages": ["image.png", "image1.png"]
   },
   "map": {
     "kakao_map_key": "f2a1f3aba28c100d5df0e9bc38e70989",

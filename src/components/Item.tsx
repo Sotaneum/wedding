@@ -93,13 +93,9 @@ export default function Item({
     return (
       <Gallery
         images={GALLERY_IMAGES}
-        filteredImages={
-          setting.gallery
-            ? setting.gallery.emptyImages.map((img) =>
-                toImageUrl(ASSETS_IMAGES, img),
-              )
-            : []
-        }
+        fillerImages={(setting.gallery?.fillerImages ?? []).map((img) =>
+          toImageUrl(ASSETS_IMAGES, img),
+        )}
       />
     );
   }

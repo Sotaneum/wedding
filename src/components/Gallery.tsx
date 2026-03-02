@@ -11,10 +11,10 @@ import RightArrow from "./svg/RightArrow";
 
 interface GalleryProps {
   images: string[];
-  filteredImages: string[];
+  fillerImages: string[];
 }
 
-function Gallery({ images, filteredImages }: GalleryProps) {
+function Gallery({ images, fillerImages }: GalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -86,6 +86,12 @@ function Gallery({ images, filteredImages }: GalleryProps) {
     };
   }, [selectedIndex, nextImage, prevImage, closeLightbox]);
 
+  const mobileFillerCount = images.length % 2 === 1 ? 1 : 0;
+  const desktopRemainder = images.length % 3;
+  const desktopFillerCount = desktopRemainder === 0 ? 0 : 3 - desktopRemainder;
+  const mobileFillerImages = fillerImages.slice(0, mobileFillerCount);
+  const desktopFillerImages = fillerImages.slice(0, desktopFillerCount);
+
   return (
     <div className="gallery-section">
       <h1>갤러리</h1>
@@ -101,28 +107,26 @@ function Gallery({ images, filteredImages }: GalleryProps) {
             onClick={() => setSelectedIndex(index)}
           />
         ))}
-        {filteredImages.length > 0 &&
-          filteredImages
-            .slice(0, images.length % 2)
+        {mobileFillerImages.length > 0 &&
+          mobileFillerImages
             .map((src, index) => (
               <img
                 key={`${src}-even-${index}`}
                 className="gallery-image gallery-filler even"
                 src={src}
-                alt={`Filtered image ${index + 1}`}
+                alt={`Gallery filler image ${index + 1}`}
                 loading="lazy"
                 decoding="async"
               />
             ))}
-        {filteredImages.length > 0 &&
-          filteredImages
-            .slice(0, 3 - (images.length % 3))
+        {desktopFillerImages.length > 0 &&
+          desktopFillerImages
             .map((src, index) => (
               <img
                 key={`${src}-odd-${index}`}
                 className="gallery-image gallery-filler odd"
                 src={src}
-                alt={`Filtered image ${index + 1}`}
+                alt={`Gallery filler image ${index + 1}`}
                 loading="lazy"
                 decoding="async"
               />

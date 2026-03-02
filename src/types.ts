@@ -65,7 +65,7 @@ export interface Setting {
     contact: { name: string; phone: string; role: string }[];
   }[];
   gallery?: {
-    emptyImages: string[];
+    fillerImages?: string[];
   };
   notice?: {
     title: string;

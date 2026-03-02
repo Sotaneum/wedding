@@ -60,7 +60,7 @@
 | `story` | X | 감사 인사 | 이미지 사용 시 `src/assets` 업로드 |
 | `calendar` | X | 달력 표시 | `false` 또는 생략 시 비활성 |
 | `contact` | X | 연락처 정보(신랑/신부 및 부모님 등) | 숫자만/하이픈 포함 형식 유지 권장 |
-| `gallery` | X | 갤러리 제외 이미지 목록 (`emptyImages`) | 제외할 파일명이 있으면 입력 (없으면 생략 가능) |
+| `gallery` | X | 갤러리 레이아웃 보정 이미지 (`fillerImages`) | `src/assets`에 보정용 이미지 업로드 |
 | `notice` | X | 안내사항 (주차, 식장 안내 등) | 여러 줄 입력 가능 |
 | `bus_notice` | X | 대절 버스 안내 | QR 이미지 있으면 `src/assets` 업로드 |
 | `congratulations` | X | 축의금 계좌 안내 | 은행명/예금주/계좌번호 형식 유지 권장 |
@@ -108,7 +108,7 @@
   // optional
   "contact": [{ "title": "string", "contact": [{ "name": "string", "phone": "string", "role": "string" }] }],
   // optional
-  "gallery": { "emptyImages": ["string"] },
+  "gallery": { "fillerImages": ["string"] },
   // optional
   "map": {
     "kakao_map_key": "string",
@@ -138,6 +138,11 @@
 ```
 
 </details>
+
+`gallery.fillerImages` 동작 규칙
+- 3개씩 표시(데스크톱)에서 실제 이미지가 4개/5개면, 6칸을 맞추기 위해 2개/1개를 순서대로 사용합니다.
+- 2개씩 표시(모바일)에서 실제 이미지가 1개(또는 홀수 개)면, 마지막 1칸을 채우기 위해 1개를 사용합니다.
+- 하위 호환을 위해 기존 `gallery.emptyImages`도 동작하지만, 신규 설정은 `gallery.fillerImages` 사용을 권장합니다.
 
 ## 3. 이미지 업로드
 
