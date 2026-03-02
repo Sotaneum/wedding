@@ -14,6 +14,7 @@
 2. `setting.json` 수정
 3. 이미지 업로드
 4. Vercel 또는 GitHub Pages로 배포
+5. 배포 주소 확인 후 `setting.json`의 `site.url` 최종 수정
 
 ## 프로젝트 구조 & 파일 위치
 
@@ -48,7 +49,7 @@
 
 | 구분 | 필수 | 설명 | 추가 작업 |
 | --- | --- | --- | --- |
-| `site` | O | 페이지 타이틀/대표 이미지(OG) 설정 | `public/og.png` 교체 |
+| `site` | O | 페이지 타이틀/대표 이미지(OG) 설정 | `public/og.png` 교체, 배포 후 `site.url`을 실제 주소로 수정 |
 | `banner` | O | 첫 화면 배너 이미지 파일명 | `src/assets/gallery`에 이미지 업로드 |
 | `hero` | O | 신랑/신부 및 부모님 정보 | 부모님 없는 경우 `names` 생략 가능 |
 | `wedding` | O | 결혼식 날짜/시간/장소 | 예시 형식 유지 권장 |
@@ -104,6 +105,22 @@
 - 완전 무료, GitHub만 있으면 가능
 단점
 - 로컬 환경 설정 필요
+
+## 5. 배포 후 최종 점검 (중요)
+
+배포가 완료되면 실제 접속 URL을 확인한 뒤 `setting.json`의 `site.url` 값을 반드시 업데이트하세요.
+
+예시
+
+```json
+"site": {
+  "url": "https://myname.vercel.app/"
+}
+```
+
+- Vercel: `https://<프로젝트명>.vercel.app/`
+- GitHub Pages: `https://<github-username>.github.io/<repo-name>/`
+- 수정 후 커밋/푸시하면 재배포되며, 공유 미리보기(OG)와 링크 기준 주소가 최신 값으로 반영됩니다.
 
 ## 카카오 지도/공유하기 설정 (선택)
 
