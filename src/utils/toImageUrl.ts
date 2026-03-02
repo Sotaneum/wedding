@@ -5,7 +5,6 @@ const toImageUrl = (images: string[], filename: string) => {
     lastDotIndex !== -1 ? filename.substring(0, lastDotIndex) : filename;
   const ext = lastDotIndex !== -1 ? filename.substring(lastDotIndex + 1) : "";
 
-  // Escape special characters for regex
   const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const regex = new RegExp(`^${escapedName}(-[a-zA-Z0-9_-]+)?\\.${ext}$`, "i");
 

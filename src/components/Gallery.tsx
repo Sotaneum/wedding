@@ -34,11 +34,9 @@ function Gallery({ images, filteredImages }: GalleryProps) {
     if (!touchStartX.current || !touchEndX.current) return;
     const distance = touchStartX.current - touchEndX.current;
 
-    // Left Swipe
     if (distance > minSwipeDistance) {
       nextImage();
     }
-    // Right Swipe
     else if (distance < -minSwipeDistance) {
       prevImage();
     }
@@ -147,7 +145,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
             src={images[selectedIndex]}
             alt={`Gallery image ${selectedIndex + 1}`}
             className="lightbox-image"
-            onClick={(e) => e.stopPropagation()} // Prevent close when clicking image
+            onClick={(e) => e.stopPropagation()}
           />
           <button className="lightbox-nav lightbox-next" onClick={nextImage}>
             <RightArrow />

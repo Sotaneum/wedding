@@ -32,7 +32,6 @@
     font-size: 18px;
     color: var(--text-color-sub);
     margin-top: -15px;
-    /* Adjust alignment to numbers */
 }
 
 @media (max-width: 480px) {

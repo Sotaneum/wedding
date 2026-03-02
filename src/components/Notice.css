@@ -23,7 +23,7 @@
 }
 
 .notice-title::before {
-  content: "💡"; /* Simple icon for visual cue */
+  content: "💡";
   font-size: 1.1em;
 }
 

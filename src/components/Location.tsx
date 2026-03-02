@@ -2,29 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import "./Location.css";
 
 interface LocationProps {
-  /** 웨딩홀 이름 */
   venueName: string;
-  /** 도로명 주소 */
   address: string;
-  /** 지번 주소 */
   addressJibun: string;
-  /** 웨딩홀 홈페이지 URL */
   websiteUrl: string;
-  /** 카카오맵 지도 중심 좌표 */
   mapCenter: { lat: number; lng: number };
-  /** 마커 좌표 */
   markerPosition: { lat: number; lng: number };
-  /** 지도 로딩 중 표시할 텍스트 */
   loadingText?: string;
-  /** 약도 이미지 URL */
   sketchImageUrl: string;
-  /** 커스텀 오버레이에 표시할 웨딩홀 로고 이미지 URL */
   venueLogo: string;
-  /** 지도 탭 버튼 레이블 (기본값: "지도") */
   mapTabLabel?: string;
-  /** 약도 탭 버튼 레이블 (기본값: "약도") */
   sketchTabLabel?: string;
-  /** 섹션 제목 (기본값: "오시는 길") */
   title?: string;
 }
 

@@ -49,7 +49,7 @@ function Calendar({
           }
 
           const isWeddingDay = day === weddingDay;
-          const colIndex = index % 7; // 0=일요일
+          const colIndex = index % 7;
           const isSunday = colIndex === 0;
           const isHoliday = isSunday || holidays.includes(day);
 
