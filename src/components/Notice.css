@@ -1,0 +1,108 @@
+.notice-container {
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 20px 20px;
+  background-color: var(--bg-color-sub);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.notice-title {
+  margin: 0px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color-main);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.notice-title::before {
+  content: "💡"; /* Simple icon for visual cue */
+  font-size: 1.1em;
+}
+
+.notice-message {
+  font-size: 0.95rem;
+  color: var(--text-color-sub);
+  line-height: 1.7;
+  word-break: keep-all;
+  margin: 0;
+}
+
+.bus-timeline {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.step-box {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.step-info {
+  margin-bottom: 4px;
+}
+
+.step-label {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.step-time {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: var(--text-color-sub);
+  line-height: 1.4;
+}
+
+.timeline-connector {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.connector-line {
+  width: 1px;
+  height: 16px;
+  background-color: #ccc;
+}
+
+.step-note {
+  margin-left: 6px;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 400;
+}
+
+.notice-footer {
+  margin: 24px 0 10px 0;
+}
+
+.notice-footer-text {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.bus-qr-link {
+  display: inline-block;
+}
+
+.bus-qr-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+}

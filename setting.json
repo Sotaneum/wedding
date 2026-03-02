@@ -1,0 +1,193 @@
+{
+  "site": {
+    "url": "https://{url 입력}.vercel.app",
+    "title": "몽룡❤️춘향의 모바일청첩장입니다.",
+    "name": "몽룡❤️춘향의 모바일청첩장",
+    "description": "저희의 새로운 출발을 따뜻하게 축복해 주시기 바랍니다.",
+    "image": {
+      "url": "/og.png",
+      "width": 400,
+      "height": 216
+    }
+  },
+  "hero": [
+    {
+      "targetName": "몽룡",
+      "names": ["이한림", "김씨"],
+      "relation": "의 아들"
+    },
+    {
+      "targetName": "춘향",
+      "names": ["성덕수", "월매"],
+      "relation": "의 딸"
+    }
+  ],
+  "wedding": {
+    "date": "2033-02-07",
+    "day": "토요일",
+    "time": "13:00",
+    "location": "남원 웨딩홀 1층 춘몽헌",
+    "address": "전북 남원시 갈치동 산85-6",
+    "address2": "(우) 590220 (지번) 고죽동"
+  },
+  "banner": {
+    "images": ["ai1.png", "ai2.png"]
+  },
+  "title": {
+    "info": "토요일 오후 1시",
+    "showParent": false
+  },
+  "countdown": true,
+  "story": {
+    "title": "몽룡, 춘향 결혼합니다.",
+    "description": [
+      "남원 광한루에서 운명처럼 마주한 두 사람이, 긴 이별과 시련의 세월 속에서도 서로를 향한 마음을 굳게 지켜왔습니다.",
+      "신분의 벽과 모진 풍파 속에서도 변치 않는 믿음으로 사랑을 지켜온 몽룡과 춘향이 이제 정식으로 부부의 연을 맺고자 합니다.",
+      "부디 자리하시어 두 사람의 굳은 언약이 아름다운 인연으로 완성되는 순간을 함께 축복해 주시기 바랍니다."
+    ],
+    "card": "card.png"
+  },
+  "calendar": true,
+  "contact": [
+    {
+      "title": "신랑측",
+      "contact": [
+        { "name": "몽룡", "phone": "010-1234-1234", "role": "신랑" },
+        {
+          "name": "이한림",
+          "phone": "010-1234-1234",
+          "role": "부"
+        },
+        {
+          "name": "김씨",
+          "phone": "010-1234-1234",
+          "role": "모"
+        }
+      ]
+    },
+    {
+      "title": "신부측",
+      "contact": [
+        { "name": "춘향", "phone": "010-1234-1234", "role": "신부" },
+        {
+          "name": "성덕수",
+          "phone": "010-1234-1234",
+          "role": "부"
+        },
+        {
+          "name": "월매",
+          "phone": "010-1234-1234",
+          "role": "모"
+        }
+      ]
+    }
+  ],
+  "gallery": {
+    "emptyImages": ["image.png", "image1.png"]
+  },
+  "map": {
+    "kakao_map_key": "1234567890abcdef1234567890abcdef",
+    "center": {
+      "lat": 35.451504,
+      "lng": 127.404385
+    },
+    "marker": {
+      "lat": 35.451504,
+      "lng": 127.404385
+    },
+    "title": "남원 춘몽헌",
+    "websiteUrl": "https://github.com/Sotaneum/wedding",
+    "weddingLogo": "wedding-logo.png",
+    "locationSketch": "location.jpeg"
+  },
+  "notice": [
+    {
+      "title": "주차 안내",
+      "message": [
+        "주차가 어려울 수 있어 30분정도 미리 도착해주시면 감사드리겠습니다."
+      ]
+    }
+  ],
+  "bus_notice": [
+    {
+      "title": "대절 버스 안내",
+      "steps": [
+        {
+          "label": "출발",
+          "time": "08:30",
+          "desc": "양재역 9번출구 서초문화원 앞 대로변"
+        },
+        {
+          "label": "도착",
+          "time": "12:40",
+          "desc": "웨딩홀 1층 춘몽헌"
+        },
+        {
+          "label": "귀경",
+          "time": "16:00",
+          "note": "(19:20 도착 예정)",
+          "desc": "양재역 9번출구 서초문화원 앞 대로변"
+        }
+      ],
+      "qr": {
+        "description": [
+          "대절 버스 탑승을",
+          "원하시면 아래 QR코드를 스캔하거나",
+          "클릭하여 신청해주세요. (1월 26일까지 접수)"
+        ],
+        "link": "https://forms.gle/sample",
+        "img": "bus-qr.png",
+        "imgAlt": "버스 탑승 신청 QR 코드"
+      }
+    }
+  ],
+  "congratulations": [
+    {
+      "title": "신부측 마음 전하실 곳",
+      "accounts": [
+        {
+          "name": "춘향",
+          "bank": "카카오뱅크",
+          "account": "0000-00-0000000",
+          "role": "신부"
+        },
+        {
+          "name": "성덕수·월매",
+          "bank": "농협",
+          "account": "000-0000-0000-00",
+          "description": "예금자명 : 월매",
+          "role": "부·모"
+        }
+      ]
+    },
+    {
+      "title": "신랑측 마음 전하실 곳",
+      "accounts": [
+        {
+          "name": "몽룡",
+          "bank": "카카오뱅크",
+          "account": "0000-00-0000000",
+          "role": "신랑"
+        },
+        {
+          "name": "이한림",
+          "bank": "국민은행",
+          "account": "0000-00-0000000",
+          "role": "부"
+        },
+        {
+          "name": "김씨",
+          "bank": "전북은행",
+          "account": "000-00-0000000",
+          "role": "모"
+        }
+      ]
+    }
+  ],
+  "share": {
+    "kakaotalk": {
+      "template_id": 12345,
+      "key": "1234567890abcdef1234567890abcdef"
+    }
+  }
+}

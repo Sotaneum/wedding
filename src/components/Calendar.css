@@ -1,0 +1,89 @@
+.calendar-container {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: sans-serif;
+  margin-bottom: 2rem;
+}
+
+.calendar-title {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #888;
+  padding-bottom: 10px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #555;
+  border-radius: 50%;
+  position: relative;
+}
+
+.calendar-day.holiday,
+.calendar-header.holiday {
+  color: #e57373;
+}
+
+.calendar-day.empty {
+  pointer-events: none;
+}
+
+.calendar-day.wedding-day {
+  background-color: #e2786f;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(226, 120, 111, 0.4);
+}
+
+.calendar-day.wedding-day::after {
+  content: "Wedding";
+  position: absolute;
+  top: -20px;
+  background-color: #555;
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: none; /* simple highlight for now */
+}
+
+@media (max-width: 400px) {
+  .calendar-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .calendar-grid {
+    gap: 5px;
+    max-width: 100%;
+  }
+
+  .calendar-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .calendar-day,
+  .calendar-header {
+    font-size: 0.85rem;
+  }
+}
