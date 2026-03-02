@@ -82,7 +82,8 @@
 
 @media (max-width: 768px) {
   .title-overlay {
-    top: 6.5rem;
+    top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
+    transform: translate(-50%, 0);
     padding: 0.5rem 1rem;
     width: 85%;
   }
