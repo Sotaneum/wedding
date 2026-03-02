@@ -60,10 +60,84 @@
 | `story` | X | 감사 인사 | 이미지 사용 시 `src/assets` 업로드 |
 | `calendar` | X | 달력 표시 | `false` 또는 생략 시 비활성 |
 | `contact` | X | 연락처 정보(신랑/신부 및 부모님 등) | 숫자만/하이픈 포함 형식 유지 권장 |
+| `gallery` | X | 갤러리 제외 이미지 목록 (`emptyImages`) | 제외할 파일명이 있으면 입력 (없으면 생략 가능) |
 | `notice` | X | 안내사항 (주차, 식장 안내 등) | 여러 줄 입력 가능 |
 | `bus_notice` | X | 대절 버스 안내 | QR 이미지 있으면 `src/assets` 업로드 |
 | `congratulations` | X | 축의금 계좌 안내 | 은행명/예금주/계좌번호 형식 유지 권장 |
 | `share` | X | 카카오 공유하기 설정 | 템플릿 ID + JavaScript 키 필요 |
+
+### setting.json 스키마 (요약)
+
+<details>
+<summary>펼쳐서 보기 (필수/선택 포함)</summary>
+
+```jsonc
+{
+  // required
+  "site": {
+    "url": "string",
+    "title": "string",
+    "name": "string",
+    "description": "string",
+    "image": { "url": "string", "width": 400, "height": 216 }
+  },
+  // required
+  "hero": [{ "targetName": "string", "names": ["string"], "relation": "string" }],
+  // required
+  "wedding": {
+    "date": "YYYY-MM-DD",
+    "day": "string",
+    "time": "HH:mm",
+    "location": "string",
+    "address": "string",
+    "address2": "string"
+  },
+  // required
+  "banner": { "images": ["string"] },
+
+  // optional
+  "title": { "info": "string", "showParent": true },
+  // optional
+  "effects": { "sakura": true },
+  // optional
+  "countdown": true,
+  // optional
+  "story": { "title": "string", "description": ["string"], "card": "string" },
+  // optional: true/false 또는 객체
+  "calendar": { "weekDays": ["일", "월", "화", "수", "목", "금", "토"], "holidays": [1, 15] },
+  // optional
+  "contact": [{ "title": "string", "contact": [{ "name": "string", "phone": "string", "role": "string" }] }],
+  // optional
+  "gallery": { "emptyImages": ["string"] },
+  // optional
+  "map": {
+    "kakao_map_key": "string",
+    "center": { "lat": 0, "lng": 0 },
+    "marker": { "lat": 0, "lng": 0 },
+    "title": "string",
+    "websiteUrl": "string",
+    "weddingLogo": "string",
+    "locationSketch": "string"
+  },
+  // optional
+  "notice": [{ "title": "string", "message": ["string"] }],
+  // optional
+  "bus_notice": [{
+    "title": "string",
+    "steps": [{ "label": "string", "time": "HH:mm", "desc": "string", "note": "string" }],
+    "qr": { "description": ["string"], "link": "string", "img": "string", "imgAlt": "string" }
+  }],
+  // optional
+  "congratulations": [{
+    "title": "string",
+    "accounts": [{ "name": "string", "bank": "string", "account": "string", "description": "string", "role": "string" }]
+  }],
+  // optional
+  "share": { "kakaotalk": { "template_id": 0, "key": "string" } }
+}
+```
+
+</details>
 
 ## 3. 이미지 업로드
 
