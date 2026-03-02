@@ -31,7 +31,6 @@
       crossorigin="anonymous"
     ></script>
     <title>%VITE_TITLE%</title>
-    <link rel="stylesheet" href="%VITE_OG_URL%/sakura.min.css" />
     <style>
       #sakura {
         overflow-x: hidden;
@@ -51,16 +50,30 @@
     <script>
       Kakao.init("%VITE_KAKAO_JS_KEY%");
     </script>
-    <div id="sakura"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="%VITE_OG_URL%/sakura.min.js"></script>
     <script>
-      if (window.Sakura) {
-        try {
-          var sakura = new Sakura("#sakura", { lifeTime: 0 });
-          sakura.start();
-        } catch {}
+      if ("%VITE_ENABLE_SAKURA%" === "true") {
+        var sakuraRoot = document.createElement("div");
+        sakuraRoot.id = "sakura";
+        document.body.appendChild(sakuraRoot);
+
+        var sakuraStyle = document.createElement("link");
+        sakuraStyle.rel = "stylesheet";
+        sakuraStyle.href = "%VITE_OG_URL%/sakura.min.css";
+        document.head.appendChild(sakuraStyle);
+
+        var sakuraScript = document.createElement("script");
+        sakuraScript.src = "%VITE_OG_URL%/sakura.min.js";
+        sakuraScript.onload = function () {
+          if (window.Sakura) {
+            try {
+              var sakura = new window.Sakura("#sakura", { lifeTime: 0 });
+              sakura.start();
+            } catch {}
+          }
+        };
+        document.body.appendChild(sakuraScript);
       }
     </script>
   </body>

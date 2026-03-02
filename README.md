@@ -54,6 +54,7 @@
 | `wedding` | O | 결혼식 날짜/시간/장소 | 예시 형식 유지 권장 |
 | `map` | X | 카카오 지도 설정 | 키/좌표/로고/약도 준비 필요 |
 | `title` | X | 상단 안내 문구 | `showParent`로 부모님 표기 제어 |
+| `effects` | X | 화면 효과 설정 (`sakura: true/false`) | 벚꽃 애니메이션 사용 여부 제어 |
 | `countdown` | X | 카운트다운 표시 | `false` 또는 생략 시 비활성 |
 | `story` | X | 감사 인사 | 이미지 사용 시 `src/assets` 업로드 |
 | `calendar` | X | 달력 표시 | `false` 또는 생략 시 비활성 |

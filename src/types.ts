@@ -45,6 +45,9 @@ export interface Setting {
     info: string;
     showParent: boolean;
   };
+  effects?: {
+    sakura?: boolean;
+  };
   countdown?: boolean;
   story?: {
     title: string;

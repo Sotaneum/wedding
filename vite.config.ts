@@ -22,6 +22,7 @@ process.env.VITE_OG_URL = setting.site.url;
 process.env.VITE_TITLE = setting.site.title;
 process.env.VITE_KAKAO_JS_KEY =
   setting.share?.kakaotalk?.key || setting.map?.kakao_map_key || "";
+process.env.VITE_ENABLE_SAKURA = String(setting.effects?.sakura ?? true);
 
 // https://vite.dev/config/
 export default defineConfig({

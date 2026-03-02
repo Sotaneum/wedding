@@ -37,6 +37,9 @@
     "info": "토요일 오후 1시",
     "showParent": false
   },
+  "effects": {
+    "sakura": true
+  },
   "countdown": true,
   "story": {
     "title": "몽룡, 춘향 결혼합니다.",
