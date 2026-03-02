@@ -87,7 +87,7 @@ function Gallery({ images, filteredImages }: GalleryProps) {
   }, [selectedIndex, nextImage, prevImage, closeLightbox]);
 
   return (
-    <div>
+    <div className="gallery-section">
       <h1>갤러리</h1>
       <div className="gallery-container">
         {images.map((src, index) => (

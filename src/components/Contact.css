@@ -1,13 +1,14 @@
 .contact-section {
   width: 90%;
   max-width: 640px;
-  margin: 40px auto;
+  margin: 48px auto;
+  padding: 8px 0;
   text-align: center;
 }
 
 .contact-title {
   color: var(--text-color-main);
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
   letter-spacing: 0.1em;
 }
 
@@ -69,4 +70,11 @@
 .call-icon {
   width: 18px;
   height: 18px;
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    margin: 36px auto;
+    padding: 4px 0;
+  }
 }

@@ -1,9 +1,13 @@
 .location-container {
   max-width: 640px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 48px auto;
+  padding: 32px 20px 20px;
   box-sizing: border-box;
   text-align: center;
+}
+
+.location-container > h1 {
+  margin: 0 0 24px;
 }
 
 .location-tabs {
@@ -67,4 +71,15 @@
 .location-address {
   color: var(--text-color-sub);
   margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .location-container {
+    margin: 36px auto;
+    padding: 24px 16px 16px;
+  }
+
+  .location-container > h1 {
+    margin-bottom: 20px;
+  }
 }

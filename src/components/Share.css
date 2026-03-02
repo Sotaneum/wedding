@@ -1,6 +1,7 @@
 .share-container {
   width: 100%;
-  padding: 40px 0;
+  margin: 48px auto;
+  padding: 16px 0 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,4 +36,11 @@
   width: 20px;
   height: 20px;
   color: #000000;
+}
+
+@media (max-width: 480px) {
+  .share-container {
+    margin: 36px auto;
+    padding: 12px 0 16px;
+  }
 }

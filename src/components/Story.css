@@ -1,7 +1,7 @@
 .story-container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 60px 24px;
+  margin: 48px auto;
+  padding: 36px 24px;
   text-align: center;
   color: var(--text-color-main);
   line-height: 2.2;
@@ -67,5 +67,12 @@
 @media (min-width: 425px) {
   .story-container {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .story-container {
+    margin: 36px auto;
+    padding: 28px 16px;
   }
 }

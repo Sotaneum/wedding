@@ -1,3 +1,13 @@
+.gallery-section {
+  max-width: 1280px;
+  margin: 48px auto;
+  padding: 0 4px;
+}
+
+.gallery-section > h1 {
+  margin: 0 0 20px;
+}
+
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -88,5 +98,16 @@
 
   .gallery-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section {
+    margin: 36px auto;
+    padding: 0 2px;
+  }
+
+  .gallery-section > h1 {
+    margin-bottom: 16px;
   }
 }
