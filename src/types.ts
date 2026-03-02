@@ -51,7 +51,12 @@ export interface Setting {
     description: string[];
     card: string;
   };
-  calendar?: boolean;
+  calendar?:
+    | boolean
+    | {
+        weekDays?: string[];
+        holidays?: number[];
+      };
   contact?: {
     title: string;
     contact: { name: string; phone: string; role: string }[];

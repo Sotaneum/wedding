@@ -47,7 +47,10 @@
     ],
     "card": "card.png"
   },
-  "calendar": true,
+  "calendar": {
+    "weekDays": ["일", "월", "화", "수", "목", "금", "토"],
+    "holidays": []
+  },
   "contact": [
     {
       "title": "신랑측",

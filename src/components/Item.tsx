@@ -68,7 +68,23 @@ export default function Item({
     );
   }
   if (id === "calendar" && !!setting.calendar) {
-    return <Calendar weddingDate={weddingDate} />;
+    const calendarSetting = setting.calendar;
+    const weekDays =
+      typeof calendarSetting === "boolean"
+        ? undefined
+        : calendarSetting.weekDays;
+    const holidays =
+      typeof calendarSetting === "boolean"
+        ? undefined
+        : calendarSetting.holidays;
+
+    return (
+      <Calendar
+        weddingDate={weddingDate}
+        weekDays={weekDays}
+        holidays={holidays}
+      />
+    );
   }
   if (id === "contact" && !!setting.contact && setting.contact.length > 0) {
     return <Contact items={setting.contact} />;
